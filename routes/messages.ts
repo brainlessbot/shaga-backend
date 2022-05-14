@@ -8,7 +8,7 @@ router.post('/', celebrate({
   [Segments.BODY]: Joi.object().keys({
     name: Joi.string().min(2).max(64).required(),
     phone: Joi.string().min(8).max(16).required(),
-    content: Joi.string().max(4096),
+    content: Joi.string().optional().allow('').max(4096),
   }),
 }), createMessage);
 
