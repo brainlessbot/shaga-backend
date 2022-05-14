@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/brainlessbot/shaga-backend/issues"
   },
-  "homepage": "https://github.com/brainlessbot/shaga-backend#readme"
+  "homepage": "https://github.com/brainlessbot/shaga-backend#readme",
+  "dependencies": {
+    "typescript": "^4.6.4"
+  }
 }
