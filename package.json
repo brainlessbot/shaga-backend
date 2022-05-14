@@ -1,0 +1,20 @@
+{
+  "name": "shaga-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainlessbot/shaga-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brainlessbot/shaga-backend/issues"
+  },
+  "homepage": "https://github.com/brainlessbot/shaga-backend#readme"
+}
