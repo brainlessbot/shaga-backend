@@ -1,6 +1,6 @@
 import 'dotenv/config';
 
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import mongoose from 'mongoose';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
@@ -17,7 +17,7 @@ app.use(rateLimit(config.rateLimiter));
 app.use(helmet());
 
 app.use(cors());
-app.options('*', cors() as express.RequestHandler);
+app.options('*', cors() as RequestHandler);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

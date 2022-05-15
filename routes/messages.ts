@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 import { createMessage } from '../controllers/messages';
 
-const router = express.Router();
+const router = Router();
 
 router.post('/', celebrate({
   [Segments.BODY]: Joi.object().keys({

@@ -30,13 +30,15 @@ const messageSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-messageSchema.post('save', (data) => {
+messageSchema.post('save', (savedData) => {
   if (OWNER_PHONE) {
     twilioApi.messages.create({
       to: OWNER_PHONE,
       body: (
-        `התקבלה הודעה חדשה מלקוח. שם: ${data.name}. טלפון: ${data.phone}. `
-        + `${data.content ? 'הלקוח ציין פרטים נוספים שנשלחו אלייך במייל.' : ''}`
+        'התקבלה הודעה חדשה מלקוח. '
+        + `שם: ${savedData.name}. `
+        + `טלפון: ${savedData.phone}. `
+        + `${savedData.content ? 'הלקוח ציין פרטים נוספים שנשלחו אלייך במייל.' : ''}`
       ),
       messagingServiceSid: CONTACT_ALERTS_SERVICE,
     });
@@ -48,9 +50,9 @@ messageSchema.post('save', (data) => {
       from: 'noreply@shaga.co.il',
       templateId: NEW_MESSAGE_RECEIVED_TEMPLATE,
       dynamicTemplateData: {
-        name: data.name,
-        phone: data.phone,
-        content: data.content,
+        name: savedData.name,
+        phone: savedData.phone,
+        content: savedData.content,
       },
     });
   }

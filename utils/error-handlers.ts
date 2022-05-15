@@ -1,14 +1,14 @@
-import express from 'express';
+import { Request, Response, NextFunction } from 'express';
 import mongoose, { MongooseError } from 'mongoose';
 import { ResponseStatus } from '../common/types';
 import AppError from '../errors/AppError';
 
 const dbErrorHandler = (
   error: MongooseError | Error,
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction,
-) => {
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
   const { ValidationError } = mongoose.Error;
 
   if (error instanceof ValidationError) {
@@ -21,10 +21,10 @@ const dbErrorHandler = (
 
 const appErrorHandler = (
   error: AppError | Error,
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction,
-) => {
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
   if (error instanceof AppError) {
     res.status(error.statusCode).json({ message: error.message });
     return;

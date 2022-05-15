@@ -1,11 +1,11 @@
-import express from 'express';
-import celebrate from 'celebrate';
+import { Router } from 'express';
+import { errors } from 'celebrate';
 import messageRoutes from './messages';
 import ResourceNotFoundError from '../errors/ResourceNotFoundError';
 import { requestLogger, errorLogger } from '../middlewares/logger';
 import { dbErrorHandler, appErrorHandler } from '../utils/error-handlers';
 
-const router = express.Router();
+const router = Router();
 
 router.use(requestLogger);
 
@@ -17,7 +17,7 @@ router.use('*', () => {
 
 router.use(errorLogger);
 
-router.use(celebrate.errors());
+router.use(errors());
 router.use(dbErrorHandler);
 router.use(appErrorHandler);
 
