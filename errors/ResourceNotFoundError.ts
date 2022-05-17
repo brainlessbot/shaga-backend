@@ -3,7 +3,10 @@ import { ResponseStatus } from '../common/types';
 
 class ResourceNotFoundError extends AppError {
   constructor() {
-    super('המשאב המבוקש אינו נמצא.', ResponseStatus.NOT_FOUND);
+    super(
+      'המשאב המבוקש אינו נמצא.',
+      ResponseStatus.NOT_FOUND,
+    );
   }
 }
 

@@ -3,7 +3,10 @@ import { ResponseStatus } from '../common/types';
 
 class AlreadySubmittedError extends AppError {
   constructor() {
-    super('הטופס כבר נשלח והתקבל.', ResponseStatus.BAD_REQUEST);
+    super(
+      'הטופס כבר נשלח והתקבל.',
+      ResponseStatus.BAD_REQUEST,
+    );
   }
 }
 
